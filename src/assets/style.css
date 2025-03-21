@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.md-48 {
+    font-size: 60px;
+}
