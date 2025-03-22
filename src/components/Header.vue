@@ -46,7 +46,7 @@ onUnmounted(() => {
                 :aria-expanded="isNavVisible"
                 @click="toggleNav"
             >
-                <span class="material-icons md-45 text-amber-600">
+                <span class="material-icons text-amber-600 hover:bg-amber-100 hover:rounded-lg p-1">
                     {{ isNavVisible ? 'close' : 'menu' }}
                 </span>
             </button>
