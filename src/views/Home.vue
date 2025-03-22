@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import BaseButton from '@/components/BaseButton.vue'
-import Footer from '@/components/Footer.vue'
-import Header from '@/components/Header.vue'
 import Service from '@/components/Service.vue'
 </script>
 
 <template>
-  <Header class="px-10" />
-  <main class="px-10 pt-20">
     <div class="py-6 flex justify-center">
       <section class="relative min-h-[80vh] overflow-hidden rounded-lg shadow-lg w-full mx-auto">
         <video
@@ -65,17 +61,17 @@ import Service from '@/components/Service.vue'
       <p class="text-lg font-bold text-gray-600">WHAT WE HAVE BEEN UP TO</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-4">
         <img
-          src="../assets/images/work1.png"
+          src="../assets/images/home/work1.png"
           alt=""
           class="rounded-2xl"
         />
         <img
-          src="../assets/images/work2.png"
+          src="../assets/images/home/work2.png"
           alt=""
           class="rounded-lg"
         />
         <img
-          src="../assets/images/work3.png"
+          src="../assets/images/home/work3.png"
           alt=""
           class="rounded-lg"
         />
@@ -100,6 +96,4 @@ import Service from '@/components/Service.vue'
         class="mt-2"
       >WhooshPro Clients Tell</BaseButton>
     </section>
-  </main>
-  <Footer />
 </template>

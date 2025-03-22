@@ -15,7 +15,9 @@
     z-index: 1000;
 
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    text-align: center;
+    gap: 4rem;
     color: white;
     padding: 20vh 2em;
     background: rgba(80, 80, 80, 0.8);

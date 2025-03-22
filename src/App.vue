@@ -1,9 +1,16 @@
 <script setup>
-import Home from './pages/Home.vue'
+import Footer from '@/components/Footer.vue'
+import Header from '@/components/Header.vue'
 </script>
 
 <template>
-  <Home />
+  <div>
+    <Header class="px-10" />
+    <main class="px-10 pt-20 min-h-screen">
+      <router-view></router-view>
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <style scoped></style>
