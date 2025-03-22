@@ -1,6 +1,8 @@
-<script setup lang="ts">
+<script setup>
 import BaseButton from '@/components/BaseButton.vue'
+import HorizontalCarousel from '@/components/HorizontalCarousel.vue';
 import Service from '@/components/Service.vue'
+import { complimentSet } from '@/utils/complimentSets';
 </script>
 
 <template>
@@ -90,10 +92,11 @@ import Service from '@/components/Service.vue'
       from startups, SMEs, to MNCs, we have partnered with clients from various industry sectors
       to government agencies, to fulfil their goals.
     </p>
-    <p class="text-lg text-gray-600 italic mt-4">Hear what our clients say.</p>
+    <p class="text-lg text-gray-600 italic my-4">Hear what our clients say.</p>
+    <HorizontalCarousel :compliments="complimentSet" />
     <BaseButton
       href="#"
-      class="mt-2"
-    >WhooshPro Clients Tell</BaseButton>
+      class="mt-4"
+    >Let's Make It Happen!</BaseButton>
   </section>
 </template>
