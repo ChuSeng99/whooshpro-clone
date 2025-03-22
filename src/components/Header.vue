@@ -14,6 +14,11 @@ const closeNav = (event) => {
   }
 };
 
+// Close menu when clicking a navigation link
+const closeMenuOnClick = () => {
+    isNavVisible.value = false;
+}
+
 onMounted(() => {
   document.addEventListener("click", closeNav);
 });
@@ -55,27 +60,39 @@ onUnmounted(() => {
                     class="flex flex-col gap-4 text-white md:flex-row md:gap-0 md:text-black"
                 >
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <router-link to="/works">Works</router-link>
                     </li>
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <a href="#"><span>Design</span></a>
                     </li>
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <a href="#"><span>Build</span></a>
                     </li>
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <a href="#"><span>CMS</span></a>
                     </li>
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <a href="#"><span>Ecommerce</span></a>
                     </li>
                     <li
-                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600">
+                        class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
+                        @click="closeMenuOnClick"
+                    >
                         <a href="#"><span>Contact</span></a>
                     </li>
                 </ul>
