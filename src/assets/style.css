@@ -24,6 +24,10 @@
   font-size: 60px;
 }
 
+.md-90 {
+  font-size: 90px;
+}
+
 @media (max-width: 768px) {
   .primary-navigation {
     position: fixed;

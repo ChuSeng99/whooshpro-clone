@@ -69,7 +69,7 @@ onUnmounted(() => {
                         class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
                         @click="closeMenuOnClick"
                     >
-                        <a href="#"><span>Design</span></a>
+                        <router-link to="/design">Design</router-link>
                     </li>
                     <li
                         class="p-2 lg:px-6 rounded-md cursor-pointer hover:bg-amber-600 md:hover:bg-white md:hover:underline md:hover:text-amber-600"
