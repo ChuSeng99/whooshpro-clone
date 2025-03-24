@@ -1,16 +1,15 @@
 # whooshpro-clone
 
-This template should help get you started developing with Vue 3 in Vite.
+### Pull Docker Image and Run Locally
+```sh
+docker pull chuseng/whooshpro-clone:latest
+```
 
-## Recommended IDE Setup
+```sh
+docker run -d -p 8080:80 chuseng/whooshpro-clone
+```
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Project Setup Locally
 
 ```sh
 npm install
