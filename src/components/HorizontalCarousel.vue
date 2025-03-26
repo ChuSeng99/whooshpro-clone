@@ -1,74 +1,99 @@
 <template>
-    <div class="relative overflow-hidden">
-        <div class="flex animate-smooth-scroll gap-8">
-            <!-- Original set -->
-            <div
-                v-for="(compliment, index) in compliments"
-                :key="index"
-                class="rounded-2xl h-60 w-72 p-4 flex justify-center items-center shadow-md bg-gradient-to-r from-gray-400 to-gray-500 text-white"
-            >
-                <span class="text-base">{{ compliment }}</span>
-            </div>
-            <!-- Duplicated set -->
-            <div
-                v-for="(compliment, index) in compliments"
-                :key="`duplicate-${index}`"
-                class="rounded-2xl h-60 w-72 p-4 flex justify-center items-center shadow-md bg-gradient-to-r from-gray-400 to-gray-500 text-white"
-            >
-                <span class="text-base">{{ compliment }}</span>
-            </div>
-        </div>
+  <div class="slider" :style="sliderStyle">
+    <div class="list">
+      <div
+        v-for="(compliment, index) in compliments"
+        :key="index"
+        class="rounded-2xl p-4 flex justify-center items-center shadow-md bg-gradient-to-r from-sky-500 to-sky-600 text-white item"
+        :style="{ '--position': index + 1 }"
+      >
+        <span class="text-base text-center">{{ compliment }}</span>
+      </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-
 const props = defineProps({
   compliments: {
     type: Array,
     required: true,
   },
-});
+  width: {
+    type: String,
+    default: '288px',
+  },
+  height: {
+    type: String,
+    default: '240px',
+  },
+})
 
-const itemWidth = 240; // w-60 = 240px
-const gap = 32; // gap-8 = 32px
-const totalWidth = computed(() => (itemWidth + gap) * props.compliments.length);
-const animationDuration = computed(() => `${totalWidth.value / 100}s`);
+const sliderStyle = {
+  '--width': props.width,
+  '--height': props.height,
+  '--quantity': props.compliments.length,
+}
 </script>
 
 <style scoped>
-@keyframes smooth-scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+.slider {
+  width: 100%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
 }
 
-.animate-smooth-scroll {
-    animation: smooth-scroll linear infinite;
-    animation-duration: v-bind(animationDuration);
-    width: calc(v-bind(totalWidth) * 2);
+.slider .list {
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
 }
 
-/* Ensure flex items don't shrink and allow text wrapping */
-.animate-smooth-scroll>div {
-    flex-shrink: 0;
-    /* Prevent items from shrinking */
-    white-space: normal;
-    /* Allow text to wrap naturally */
+.slider .list .item {
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  animation: autoRun 15s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc((15s / var(--quantity)) * (var(--position) - 1) - 15s) !important;
 }
 
-/* Optional: Limit text width and center it */
-.animate-smooth-scroll>div>span {
-    display: block;
-    /* Ensure span behaves like a block for wrapping */
-    max-width: 100%;
-    /* Restrict text to container width */
-    text-align: center;
-    /* Center the wrapped text */
+.slider .list .item img {
+  width: 100%;
+}
+
+@keyframes autoRun {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: calc(var(--width) * -1);
+  }
+}
+
+.slider:hover .item {
+  animation-play-state: paused !important;
+  filter: grayscale(1);
+}
+.slider .item:hover {
+  filter: grayscale(0);
+}
+
+.slider[reverse='true'] .item {
+  animation: reversePlay 15s linear infinite;
+}
+
+@keyframes reversePlay {
+  from {
+    left: calc(var(--width) * -1);
+  }
+
+  to {
+    left: 100%;
+  }
 }
 </style>
